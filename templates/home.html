@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% include 'bootstrap.html' %}
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      h1 {
+        font-size: 40px;
+        font-family: poppins, sans-serif;
+        font-weight: 600;
+        text-align: center;
+        color: rgb(50, 50, 255);
+        margin-top: 10px;
+        margin-bottom: 8px;
+      }
+
+      #banner {
+        width: 100%;
+        height: 360px;
+        object-fit: cover;
+        margin-bottom: 20px;
+        margin-top: 20px;
+      }
+
+      h2 {
+        font-family: Roboto;
+        font-size: 32px;
+        color: rgb(100, 100, 100);
+        text-align: center;
+        font-weight: normal;
+        margin-bottom: 20px;
+      }
+
+      #container {
+        max-width: 720px;
+        margin: 0 auto 0 auto;
+      }
+    </style>
+  </head>
+  <body>
+    {% include 'nav.html' %}
+
+    <img class="img-fluid"id="banner"src="static/victor3.jpg"/>
+
+    <div class="container">
+      <h1>{{company_name}}</h1>
+
+      <div class="row" style="margin-bottom: 14px">
+        <div class="col-md-6">
+          <p class="lead margin-bottom 20px">
+            Welcome to Local Jobs, where we aim to revolutionize the job search
+            experience for both employers and job seekers. Our platform is
+            designed with a commitment to bridging the gap between talent and
+            opportunity, providing a seamless and efficient space for connecting
+            qualified candidates with exciting job opportunities. As the
+            architects of this dynamic job ecosystem, we believe in the power of
+            innovation, transparency, and empowerment in the job market.
+          </p>
+        </div>
+        <div class="d none d-md-block col-6">
+          <img
+            src="static/victor2.jpg"
+            style="height: 320px; border-radius: 4px"
+            alt="Local Jobs"
+          />
+        </div>
+      </div>
+      <h2 style="margin-top: 20px; margin-bottom: 30px">Open Positions</h2>
+
+      <p>{% for job in jobs %} {% include 'jobitem.html' %} {% endfor %}</p>
+
+      <div style="text-align: center">
+        <button class="btn btn-primary btn-lg mt-4 margin-top">
+          Contact Us
+        </button>
+      </div>
+    </div>
+
+    {% include 'footer.html' %}
+  </body>
+</html>
