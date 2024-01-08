@@ -45,7 +45,8 @@
   <body>
     {% include 'nav.html' %}
 
-    <img class="img-fluid"id="banner"src="static/victor1.jpg"/>
+    <img class="img-fluid" id="banner" src="{{ url_for('static', filename='img/victor1.jpg') }}" alt="Example Image">
+
 
     <div class="container">
       <h1>{{company_name}}</h1>
@@ -64,7 +65,8 @@
         </div>
         <div class="d none d-md-block col-6">
           <img
-            src="static/victor2.jpg"
+            src="{{ url_for('static', filename='img/victor2.jpg') }}"
+
             style="height: 320px; border-radius: 4px"
             alt="Local Jobs"
           />
