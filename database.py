@@ -1,5 +1,12 @@
 from sqlalchemy import create_engine, text
 import os
+from flask import Flask, render_template, request, redirect, url_for, session
+from flask_mysqldb import MySQL
+import MySQLdb.cursors
+import re
+from flask_sqlalchemy import SQLAlchemy
+
+db = SQLAlchemy()
 
 db_connection = os.environ['db_connection']
 engine = create_engine(db_connection,
@@ -8,8 +15,6 @@ engine = create_engine(db_connection,
                              "ssl_ca":"/etc/ssl/cert.pem"
                           }
                        })
-
-
 
 
 
@@ -54,3 +59,8 @@ def add_application_to_db(job_id, data):
          conn.commit()  # Make sure to commit the changes
         except Exception as e:
          print(f"Error executing query: {e}")
+
+
+
+###########Auth########################################
+         

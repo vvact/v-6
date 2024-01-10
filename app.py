@@ -1,7 +1,8 @@
-from flask import Flask,render_template,jsonify,request
+from flask import Flask,render_template,jsonify,request,redirect
 from database import load_jobs_from_db
 from database import load_job_from_db
 from database import add_application_to_db
+
 
 app = Flask(__name__)
 

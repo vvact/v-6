@@ -40,9 +40,20 @@
         max-width: 720px;
         margin: 0 auto 0 auto;
       }
+      #preloader{
+        background:#000 url("{{ url_for('static', filename='img/vi.gif') }}") no-repeat center center;
+        background-size: 20%;
+        height: 100vh;
+        width: 100%;
+        position: fixed;
+        z-index: 100;
+      }
     </style>
   </head>
   <body>
+    <div id="preloader">
+
+    </div>
     {% include 'nav.html' %}
 
     <img class="img-fluid" id="banner" src="{{ url_for('static', filename='img/victor1.jpg') }}" alt="Example Image">
@@ -84,5 +95,13 @@
     </div>
 
     {% include 'footer.html' %}
+
+    <script>
+      var loader = document.getElementById('preloader');
+      window.addEventListener('load',function(){
+        loader.style.display = "none";
+      })
+    </script>
+
   </body>
 </html>
